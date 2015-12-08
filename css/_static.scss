@@ -1,0 +1,34 @@
+body {
+  background-color: black;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar {
+  margin-top: 10px;
+  border: solid darkgray 1px;
+}
+
+.panel {
+  border: solid darkgray 1px;
+}
+
+.panel-body {
+  background-color: #222;
+}
+
+h1 {
+  color: gold;
+}
+
+.dot {
+  color: white;
+}
+
+.glyphicon {
+  vertical-align: -1px;
+}

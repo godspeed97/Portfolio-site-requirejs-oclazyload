@@ -1,0 +1,45 @@
+<div ng-controller="calculatorCtrl as calc">
+    <div class="well calculator">
+        <div class="row rowCalc">
+            <div class="well well-sm col-xs-10 col-xs-offset-1 result">
+                <input type="number" class="form-control display" value="{{calc.display}}" maxlength="4" disabled/>
+                <input type="number" class="form-control memory" value="{{calc.memory}}" maxlength="4" disabled/>
+            </div>
+        </div>
+        <div class="row rowCalc">
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-offset-1" ng-click="calc.calcControl('MC')">MC</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('MR')">MR</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('MS')">MS</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('M+')">M+</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('M-')">M-</button>
+
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-offset-1" ng-click="calc.calcControl('&larr;')">&larr;</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('CE')">CE</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('C')">C</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('+/-')">+/-</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('&radic;')">&radic;</button>
+
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-offset-1 btnNum" ng-click="calc.calcControl('7')">7</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('8')">8</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('9')">9</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('/')">/</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('%')">%</button>
+
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-offset-1 btnNum" ng-click="calc.calcControl('4')">4</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('5')">5</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('6')">6</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('*')">*</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('1/x')">1/x</button>
+
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-offset-1 btnNum" ng-click="calc.calcControl('1')">1</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('2')">2</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('3')">3</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('+')">+</button>
+            <button class="btn btn-default btn-calc col-xs-2 col-xs-pull-1 btnEqual" ng-click="calc.calcControl('=')">=</button>
+
+            <button class="btn btn-default btn-calc col-xs-4 col-xs-offset-1 btnNum" ng-click="calc.calcControl('0')">0</button>
+            <button class="btn btn-default btn-calc col-xs-2 btnNum" ng-click="calc.calcControl('.')">.</button>
+            <button class="btn btn-default btn-calc col-xs-2" ng-click="calc.calcControl('-')">-</button>
+        </div>
+    </div>
+</div>
