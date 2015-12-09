@@ -1,12 +1,12 @@
 require.config({
 
     paths: {
-        "angular": ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min", "js/libs/angular/angular.min"],
-        "angular-animate": ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min", "js/libs/angular-animate/angular-animate.min"],
-        "angular-ui-router": ["https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min", "js/libs/angular-ui-router/build/angular-ui-router.min"],
-        "angular-css": ["https://cdnjs.cloudflare.com/ajax/libs/angular-css/1.0.7/angular-css.min", "js/libs/angular-css/angular-css.min"],
-        "angular-strap": ["https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.3/angular-strap.min", "js/libs/angular-strap/dist/angular-strap.min"],
-        "oclazyload": ["js/libs/oclazyload/dist/ocLazyLoad.min"],
+        "angular": ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min", "node_modules/angular/angular.min"],
+        "angular-animate": ["https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min", "node_modules/angular-animate/angular-animate.min"],
+        "angular-ui-router": ["https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min", "node_modules/angular-ui-router/build/angular-ui-router.min"],
+        "angular-css": ["https://cdnjs.cloudflare.com/ajax/libs/angular-css/1.0.7/angular-css.min", "node_modules/angular-css/angular-css.min"],
+        "angular-strap": ["https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.3/angular-strap.min", "node_modules/angular-strap/dist/angular-strap.min"],
+        "oclazyload": ["node_modules/oclazyload/dist/ocLazyLoad.min"],
         "app": "js/assets/app",
         "app-controllers": "js/controllers/formCtrl"
     },
