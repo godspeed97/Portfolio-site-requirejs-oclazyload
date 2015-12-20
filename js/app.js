@@ -1,12 +1,12 @@
 (function () {
 
-    angular.module("myApp", [
-            "ui.router", //angular ui-router
-            "ngAnimate", //for fade in effect on navigation view change
-            "door3.css", //for route configuration object css property (dynamic loading of stylesheets on view change)
-            "mgcrea.ngStrap", //for active nav button state
-            "oc.lazyLoad", //lazy loading angular components
-            "myApp.controllers"
+    angular.module('myApp', [
+            'ui.router', //angular ui-router
+            'ngAnimate', //for fade in effect on navigation view change
+            'door3.css', //for route configuration object css property (dynamic loading of stylesheets on view change)
+            'mgcrea.ngStrap', //for active nav button state
+            'oc.lazyLoad', //lazy loading angular components
+            'controllersModule'
         ])
         .config(function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
 
@@ -17,16 +17,16 @@
                     url: '/',
                     views: {
                         'header': {
-                            templateUrl: '/views/static/header.html'
+                            templateUrl: 'views/static/header.html'
                         },
                         'nav': {
-                            templateUrl: '/views/static/nav.html'
+                            templateUrl: 'views/static/nav.html'
                         },
                         'content': {
-                            templateUrl: '/views/home.html'
+                            templateUrl: 'views/portfolio.html'
                         },
                         'footer': {
-                            templateUrl: '/views/static/footer.html'
+                            templateUrl: 'views/static/footer.html'
                         }
                     }
                 })
@@ -34,7 +34,7 @@
                     url: 'home',
                     views: {
                         'content@': {
-                            templateUrl: '/views/home.html'
+                            templateUrl: 'views/portfolio.html'
                         }
                     }
                 })
@@ -42,7 +42,7 @@
                     url: 'about',
                     views: {
                         'content@': {
-                            templateUrl: '/views/about.html'
+                            templateUrl: 'views/about.html'
                         }
                     }
                 })
@@ -68,16 +68,19 @@
                     url: ':id',
                     views: {
                         'content@': {
-                            css: function ($stateParams) { //perhaps move to oclazyload below, but css properties must be namespaced correctly
-                                return '/portfolio/' + $stateParams.id + '/css/master.css';
-                            },
+                            //css: function ($stateParams) { //perhaps move to oclazyload below, but css properties must be namespaced correctly
+                            //    return 'portfolio/' + $stateParams.id + '/css/master.css';
+                            //},
                             templateUrl: function ($stateParams) {
-                                return '/portfolio/' + $stateParams.id + '/index.html';
+                                return 'portfolio/' + $stateParams.id + '/index.html';
                             },
                             resolve: {
                                 load: function ($stateParams, $ocLazyLoad) {
                                     return $ocLazyLoad.load({
-                                        files: ['portfolio/' + $stateParams.id + '/js/mainModule.js'] // wait until there's an easy way to namespace css files before loading them here
+                                        files: [
+                                            'portfolio/' + $stateParams.id + '/js/mainModule.js',
+                                            'portfolio/' + $stateParams.id + '/css/master.css'
+                                        ] // wait until there's an easy way to namespace css files before loading them here
                                     });
                                 }
                             }

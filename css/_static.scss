@@ -2,6 +2,11 @@ body {
   background-color: black;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -21,7 +26,7 @@ body {
   background-color: #222;
 }
 
-h1 {
+.mainTitle {
   color: gold;
 }
 

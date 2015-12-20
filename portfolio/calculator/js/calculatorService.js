@@ -183,14 +183,13 @@
                 return false;
             }
 
-            var keyPressed = function (key) {
+            function keyPressed(key) {
                 if (!isDuplicateOperator(key)) {
                     switcher[key](key);
                 }
                 lastKey = key;
                 return [display, memory];
-
-            };
+            }
 
             return {
                 keyPressed: keyPressed
