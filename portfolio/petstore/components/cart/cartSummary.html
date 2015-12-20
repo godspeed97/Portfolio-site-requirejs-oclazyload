@@ -1,0 +1,9 @@
+<div class='navbar-right petstore'>
+    <div class='navbar-text petstore'>
+        <b>Your cart:</b>
+        {{summary.itemCount()}} item(s),
+        {{summary.total() | currency}}
+    </div>
+    <!--<a href='#/checkout' class='btn btn-default navbar-btn'>Checkout</a>-->
+    <a ui-sref='.petstore.checkout' class='btn btn-default navbar-btn'>Checkout</a>
+</div>

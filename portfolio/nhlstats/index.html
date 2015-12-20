@@ -1,0 +1,14 @@
+<div ng-controller="nhlStatsCtrl as nhlStats" class="nhlstats-main">
+    <h1 class="nhlstatsTitle">NHL STATS</h1>
+    <div class="navbar">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="root.portfolio.nhlstats">Teams</a></li>
+            <li><a ui-sref="root.portfolio.nhlstats.points">Points</a></li>
+            <li><a ui-sref="root.portfolio.nhlstats.goals">Goals</a></li>
+            <li><a ui-sref="root.portfolio.nhlstats.assists">Assists</a></li>
+            <li><a ui-sref="root.portfolio.nhlstats.plusminus">+/-</a></li>
+        </ul>
+    </div>
+    <div ui-view="statsContent"></div>
+</div>
+
