@@ -13,10 +13,18 @@
 			
 			$stateProvider
 				.state('root.portfolio.nhlstats', {
-					url: '/',
+					url: '/teams',
 					views: {
 						'statsContent@root.portfolio': {
 							templateUrl: '/portfolio/nhlstats/views/teams.html'
+						}
+					}
+				})
+				.state('root.portfolio.nhlstats.team', {
+					url: 'teams/:team',
+					views: {
+						'statsContent@root.portfolio': {
+							templateUrl: '/portfolio/nhlstats/views/team.html'
 						}
 					}
 				})
@@ -51,14 +59,6 @@
 							templateUrl: '/portfolio/nhlstats/views/plusminus.html'
 						}
                     }
-				})
-				.state('root.portfolio.nhlstats.team', {
-					url: 'teams/:team',
-					views: {
-						'statsContent@root.portfolio': {
-							templateUrl: '/portfolio/nhlstats/views/team.html'
-						}
-					}
 				})
 			
 		})

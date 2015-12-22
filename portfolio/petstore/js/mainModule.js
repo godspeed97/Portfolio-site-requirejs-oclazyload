@@ -11,11 +11,11 @@
         }])
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/catalogue');
 
             $stateProvider
                 .state('root.portfolio.petstore', { //root.portfolio.petstore
-                    url: '/',
+                    url: '/catalogue',
                     views: {
                         // relative: 'petstoreContent' (ui-view='petstoreContent') or '' (ui-view)
                         // absolute: 'petstoreContent@root.portfolio' (ui-view='petstoreContent')

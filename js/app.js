@@ -3,8 +3,6 @@
     angular.module('myApp', [
             'ui.router', //angular ui-router
             'ngAnimate', //for fade in effect on navigation view change
-            'door3.css', //for route configuration object css property (dynamic loading of stylesheets on view change)
-            'mgcrea.ngStrap', //for active nav button state
             'oc.lazyLoad', //lazy loading angular components
             'controllersModule'
         ])
@@ -68,9 +66,6 @@
                     url: ':id',
                     views: {
                         'content@': {
-                            //css: function ($stateParams) { //perhaps move to oclazyload below, but css properties must be namespaced correctly
-                            //    return 'portfolio/' + $stateParams.id + '/css/master.css';
-                            //},
                             templateUrl: function ($stateParams) {
                                 return 'portfolio/' + $stateParams.id + '/index.html';
                             },
@@ -80,7 +75,7 @@
                                         files: [
                                             'portfolio/' + $stateParams.id + '/js/mainModule.js',
                                             'portfolio/' + $stateParams.id + '/css/master.css'
-                                        ] // wait until there's an easy way to namespace css files before loading them here
+                                        ]
                                     });
                                 }
                             }
