@@ -1,3 +1,10 @@
+.calculator-main {
+  border: 2px solid red;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .calculator {
   width: 420px;
   border: solid 2px black;
@@ -5,7 +12,7 @@
   background-color: #808080;
   margin: 0 auto; }
 
-.rowCalc {
+.row-calc {
   margin: 0 -30px 0 -30px; }
 
 .result {

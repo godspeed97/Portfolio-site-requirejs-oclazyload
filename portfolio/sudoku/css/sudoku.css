@@ -1,3 +1,28 @@
+.sudokuMain {
+    border: 2px solid red;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#sudoku {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background-color: #000;
+    border-radius: 4%;
+    margin: 0 auto;
+}
+
+#sudokuGrid {
+    position: relative;
+    width: 95%;
+    height: 70%;
+    display: inline-block;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
 #sudokuBottomContainer {
     height: 5%;
 }
@@ -14,24 +39,6 @@
 
 #sudokuOkBtn {
     margin-right: 20px;
-}
-
-#sudoku {
-    position: relative;
-    width: 400px;
-    height: 600px;
-    background-color: #000;
-    border-radius: 4%;
-    text-align: center;
-}
-
-#sudokuGrid {
-    position: relative;
-    width: 95%;
-    height: 70%;
-    display: inline-block;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
 }
 
 #sudokuDialog {
