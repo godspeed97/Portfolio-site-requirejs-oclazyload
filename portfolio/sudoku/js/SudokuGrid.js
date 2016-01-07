@@ -21,6 +21,8 @@
 
         "use strict";
 
+        var that = this;
+
         //  symboles pour certaines opérations de l'utilisateur sur la grille
         //  - MARK: "marquer" une subcell initialement invisible en shift-cliquant dessus
         //  - UNMARK: cacher une subcell qui était visible (shift-click)
@@ -200,7 +202,7 @@
                     // clic de subcell: s'il y a un callback, il est appelé et s'il retourne true,
                     // on set la valeur de la cellule au digit associé à la subcell;
                     else {
-                        if (!callback || callback(evtDesc.line, evtDesc.col, evtDesc.digit, sudoku.gridOperation.SET)) {
+                        if (!callback || callback(evtDesc.line, evtDesc.col, evtDesc.digit, that.gridOperation.SET)) {
                             var content = document.getElementById(cellId(evtDesc.line, evtDesc.col));
                             content.innerHTML = e.target.innerHTML;
                             content.style.zIndex = "2";
@@ -215,7 +217,7 @@
                 else if (evtDesc.target === "cell") {
                     var cell = document.getElementById(cellId(evtDesc.line, evtDesc.col));
                     if (!cell.isClue) {
-                        if (!callback || callback(evtDesc.line, evtDesc.col, evtDesc.digit, sudoku.gridOperation.SET)) {
+                        if (!callback || callback(evtDesc.line, evtDesc.col, evtDesc.digit, that.gridOperation.SET)) {
                             e.target.innerHTML = "";
                             cell.style.zIndex = "0";
                         }
@@ -239,9 +241,9 @@
                 //      empêcher qu'on puisse faire apparaître un candidat illégal dans le contexte
 
                 if (enabled.marksEditing) {
-                    var operation = sudoku.gridOperation.UNMARK;
+                    var operation = that.gridOperation.UNMARK;
                     if (e.target.style.color === colors.UNMARKED) {
-                        operation = sudoku.gridOperation.MARK;
+                        operation = that.gridOperation.MARK;
                     }
 
                     if (!callback || callback(evtDesc.line, evtDesc.col, evtDesc.digit, operation)) {
