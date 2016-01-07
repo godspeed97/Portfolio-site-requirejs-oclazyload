@@ -1,0 +1,55 @@
+﻿<div ng-controller="sudokuMainCtrl">
+    <div id="sudoku">
+        <nav id="sudokuMenuNav">
+            <ul>
+                <li><span>Puzzle</span>
+                    <ul>
+                        <li><span>Nouveau...</span>
+                            <ul>
+                                <li><span id="puzzleFacile">Facile</span></li>
+                                <li><span id="puzzleMoyen">Moyen</span></li>
+                                <li><span id="puzzleDifficile">Difficile</span></li>
+                                <li><span id="puzzleTresDifficile">Très difficile</span></li>
+                            </ul>
+                        </li>
+                        <li><span id="sudokuPuzzleManuel">Manuel</span></li>
+                        <li><span id="sudokuInCanonique">Forme Canonique</span></li>
+                        <li><span id="sudokuReset">Reset</span></li>
+                    </ul>
+                </li>
+                <li id="sudokuMenuAffichage"><span>Affichage</span>
+                    <ul>
+                        <li><span id="sudokuOutCanonique">Forme Canonique</span></li>
+                    </ul>
+                </li>
+                <li id="sudokuMenuAssistance"><span>Assistance</span>
+                    <ul>
+                        <li><span id="sudokuHints">Hints</span></li>
+                        <li><span id="sudokuAutoPlay">Autoplay</span></li>
+                        <li><span id="sudokuCheck">Check</span></li>
+                        <li><span id="sudokuSolution">Solution</span></li>
+                    </ul>
+                </li>
+                <li><span>Aide</span></li>
+            </ul>
+        </nav>
+
+        <div id="sudokuGrid"></div>
+
+        <div id="sudokuBottomContainer">
+            <div id="sudokuMarksMenu">
+                <input type='radio' name='test' value='1' id="sudokuMarksNONE" checked><span>notes off</span>
+                <input type='radio' name='test' value='3' id="sudokuMarksNOTES"><span>notes on</span>
+                <input type='radio' name='test' value='2' id="sudokuMarksCANDIDATES"><span>candidats</span>
+            </div>
+
+            <div id="sudokuOkCancel">
+                <button id="sudokuOkBtn">OK</button>
+                <button id="sudokuCancelBtn">Annuler</button>
+            </div>
+        </div>
+
+        <textarea id="sudokuDialog"></textarea>
+    </div>
+
+</div>
