@@ -1,18 +1,18 @@
-.mainContent {
-  height: 5000px;
+.mainPanelPortfolioBody {
+  background-color: #222;
 }
 
-.thumbnail {
+.portfolioThumbnail {
   margin: 15px;
   background-color: #222;
   border: solid darkgray 5px;
 }
 
-.caption > h3, .caption > p {
+.portfolioCaption > h3, .portfolioCaption > p {
   color: #fff;
 }
 
-.caption > h3 {
+.portfolioCaption > h3 {
   text-align: center;
   margin-top: -3px;
 }

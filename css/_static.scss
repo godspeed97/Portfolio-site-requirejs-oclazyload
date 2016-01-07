@@ -2,43 +2,33 @@ body {
   background-color: black;
 }
 
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.navbar .navbar-nav {
+.mainNavbar .mainNavbarNav {
   display: inline-block;
   float: none;
   vertical-align: top;
 }
 
-.navbar {
+.mainNavbar {
   margin-top: 10px;
   border: solid darkgray 1px;
 }
 
-.panel {
+.mainPanel {
   border: solid darkgray 1px;
 }
 
-.panel-body {
-  background-color: #222;
+.mainPanelBody {
+  background-color: #f5f5f5;
 }
 
-.mainTitle {
+.mainHeaderTitle {
   color: gold;
 }
 
-.dot {
+.mainHeaderDot {
   color: white;
 }
 
-.glyphicon {
+.mainNavGlyphicon {
   vertical-align: -1px;
-}
-
-.active {
-  background-color: #080808;
-  color: #ffffff;
 }

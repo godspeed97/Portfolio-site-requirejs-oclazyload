@@ -3,8 +3,6 @@
     angular.module("calculatorModule")
         .factory("calculatorSvc", function () {
 
-            //Needed: maximum number of digits that can be entered
-
             var display = '0',
                 firstOperand = '0',
                 lastKey = '0',
@@ -12,7 +10,7 @@
                 captureModeOn = false,
                 memory = '0';
 
-            var switcher = {
+            var keyMap = {
 
                 '0': processDigit,
                 '1': processDigit,
@@ -41,8 +39,7 @@
                 'CE': processClear,
 
                 'MC': processMemory,
-                //'MR': processMemory,
-                'MR': processMemoryRecall,
+                'MR': processMemory,
                 'MS': processMemory,
                 'M+': processMemory,
                 'M-': processMemory
@@ -167,33 +164,34 @@
                     case 'MC':
                         memory = '0';
                         break;
+                    case 'MR':
+                        display = memory;
+                        break;
                 }
                 captureModeOn = false;
-            }
-
-            function processMemoryRecall() { //test if this is necessary
-                captureModeOn = false;
-                display = memory;
             }
 
             function isDuplicateOperator(key) {
-                if (key === lastKey && '+-*/='.indexOf(key) !== -1) {
-                    return true;
-                }
-                return false;
+                return (key === lastKey && '+-*/='.indexOf(key) !== -1);
             }
 
             function keyPressed(key) {
                 if (!isDuplicateOperator(key)) {
-                    switcher[key](key);
+                    keyMap[key](key);
                 }
                 lastKey = key;
                 return [display, memory];
             }
 
-            return {
+            var api = {
                 keyPressed: keyPressed
             };
+
+            /* test-code */
+            api._calculateBasic = calculateBasic;
+            /* end-test-code */
+
+            return api;
 
         });
 

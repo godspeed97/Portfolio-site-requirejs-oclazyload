@@ -8,10 +8,10 @@
 		$state.go('root.portfolio.nhlstats');
 
 		var vm = this;
-        var pointsUrl = 'https://jsonp.nodejitsu.com/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/points/leagueleaders.json';
-        var goalsUrl = 'https://jsonp.nodejitsu.com/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/goals/leagueleaders.json';
-        var assistsUrl = 'https://jsonp.nodejitsu.com/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/assists/leagueleaders.json';
-		var plusminusUrl = 'https://jsonp.nodejitsu.com/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/plusminus/leagueleaders.json';
+        var pointsUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/points/leagueleaders.json';
+        var goalsUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/goals/leagueleaders.json';
+        var assistsUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/assists/leagueleaders.json';
+		var plusminusUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/plusminus/leagueleaders.json';
         
 		//POINTS------------------------------
 		nhlStatsSvc.getStats(pointsUrl)
