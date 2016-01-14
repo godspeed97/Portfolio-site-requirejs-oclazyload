@@ -6,6 +6,7 @@ require.config({
         'angular-ui-router': ['https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min', 'node_modules/angular-ui-router/build/angular-ui-router.min'],
         'oclazyload': ['node_modules/oclazyload/dist/ocLazyLoad.min'],
         'controllersModule': 'js/modules/controllersModule',
+        'contactFormController': 'js/controllers/contactFormController',
         'app': 'js/app'
     },
 
@@ -27,8 +28,11 @@ require.config({
         'controllersModule': {
             deps: ['angular']
         },
+        'contactFormController': {
+            deps: ['angular']
+        },
         'app': {
-            deps: ['angular', 'angular-ui-router', 'angular-animate', 'oclazyload', 'controllersModule']
+            deps: ['angular', 'angular-ui-router', 'angular-animate', 'oclazyload', 'controllersModule', 'contactFormController']
         }
     }
 });

@@ -1,0 +1,98 @@
+.docsSudokuInfo {
+    background-color: #eee;
+    overflow: auto;
+    text-align: center;
+}
+
+.docsSudokuInfo p, ul {
+    text-align: left;
+}
+
+.docsSudokuInfo h3 {
+    border: solid 2px;
+    display: inline-block;
+    background-color: #fff;
+}
+
+#docsSudokuInfoSubgrid p {
+    float: left;
+    width: 300px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+.docsSudokuGrid {
+    float: left;
+    width: 200px;
+    height: 200px;
+    empty-cells: show;
+    padding: 0px;
+    border-spacing: 0px;
+    border: solid 5px;
+    margin: 15px;
+    text-align: center;
+}
+
+.docsSudokuGrid td {
+    border: solid 1px;
+    width: 11%;
+    height: 11%;
+    padding: 0px;
+}
+
+.docsSudokuGrid td:nth-child(3), .docsSudokuGrid td:nth-child(6) {
+    border-right: solid 3px;
+}
+
+.docsSudokuGrid tr:nth-child(3), .docsSudokuGrid tr:nth-child(6) {
+    border-bottom: solid 3px;
+}
+
+.docsSudokuGridLarge {
+    width: 300px;
+    height: 300px;
+}
+
+.docsSudokuBlue {
+    background-color: #0ff;
+}
+
+#docsSudokuTexte2 {
+    float: left;
+    width: 700px;
+    margin: 20px 30px;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+#docsSudokuTexte3 {
+    float: left;
+    width: 500px;
+    margin: 20px 30px;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+.docsSudokuWatermarks {
+    float: left;
+    width: 300px;
+    height: 300px;
+    empty-cells: show;
+    padding: 15px;
+    border-spacing: 0px;
+    border: solid 2px;
+    margin: 15px;
+    text-align: center;
+
+}
+
+.docsSudokuWatermarks td, th {
+    border: solid 1px;
+    padding: 2px;
+}
+
+.docsSudokuWatermarks th {
+    background-color: #00b0e8;
+}

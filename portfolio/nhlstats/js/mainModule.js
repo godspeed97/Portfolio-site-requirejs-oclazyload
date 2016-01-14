@@ -59,8 +59,8 @@
 							templateUrl: '/portfolio/nhlstats/views/plusminus.html'
 						}
                     }
-				})
+				});
 			
-		})
+		});
 
 })();

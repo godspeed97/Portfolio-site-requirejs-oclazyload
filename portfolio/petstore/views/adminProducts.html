@@ -1,35 +1,35 @@
-<div ng-controller="productCtrl as product">
+<div ng-controller="adminProductCtrl as adminProduct">
     <table id="productTable" class="table table-striped table-bordered">
         <tr>
             <th>Name</th><th>Description</th><th>Category</th><th>Price</th><th></th>
         </tr>
-        <tr ng-repeat="item in product.products" ng-hide="item.id === product.editedProduct.id">
+        <tr ng-repeat="item in adminProduct.products" ng-hide="item.id === adminProduct.editedProduct.id">
             <td>{{item.name}}</td>
             <td class="description">{{item.description}}</td>
             <td>{{item.category}}</td>
             <td>{{item.price | currency}}</td>
             <td>
-                <button ng-click="product.startEdit(item)" class="btn btn-xs btn-primary">
+                <button ng-click="adminProduct.startEdit(item)" class="btn btn-xs btn-primary">
                     Edit
                 </button>
-                <button ng-click="product.deleteProduct(item)" class="btn btn-xs btn-primary">
+                <button ng-click="adminProduct.deleteProduct(item)" class="btn btn-xs btn-primary">
                     Delete
                 </button>
             </td>
         </tr>
-        <tr ng-class="{danger: product.editedProduct}">
-            <td><input ng-model="product.editedProduct.name" required /></td>
-            <td><input ng-model="product.editedProduct.description" required /></td>
-            <td><input ng-model="product.editedProduct.category" required /></td>
-            <td><input ng-model="product.editedProduct.price" required /></td>
+        <tr ng-class="{danger: adminProduct.editedProduct}">
+            <td><input ng-model="adminProduct.editedProduct.name" required /></td>
+            <td><input ng-model="adminProduct.editedProduct.description" required /></td>
+            <td><input ng-model="adminProduct.editedProduct.category" required /></td>
+            <td><input ng-model="adminProduct.editedProduct.price" required /></td>
             <td>
-                <button ng-hide="product.editedProduct.id" ng-click="product.createProduct(product.editedProduct)" class="btn btn-xs btn-primary">
+                <button ng-hide="adminProduct.editedProduct.id" ng-click="adminProduct.createProduct(adminProduct.editedProduct)" class="btn btn-xs btn-primary">
                     Create
                 </button>
-                <button ng-show="product.editedProduct.id" ng-click="product.updateProduct(product.editedProduct)" class="btn btn-xs btn-primary">
+                <button ng-show="adminProduct.editedProduct.id" ng-click="adminProduct.updateProduct(adminProduct.editedProduct)" class="btn btn-xs btn-primary">
                     Save
                 </button>
-                <button ng-show="product.editedProduct" ng-click="product.cancelEdit()" class="btn btn-xs btn-primary">
+                <button ng-show="adminProduct.editedProduct" ng-click="adminProduct.cancelEdit()" class="btn btn-xs btn-primary">
                     Cancel
                 </button>
             </td>

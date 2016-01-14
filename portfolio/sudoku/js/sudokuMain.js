@@ -62,6 +62,7 @@
          2 - initialisation unique
          ***************************************************************************************************/
         function init() {
+            
             // création dynamique de la grille de 81 cellules; le callback "onGridModif" (défini plus loin)
             // sera appelé pour permettre ou empêcher l'action de tout clic sur la grille
             grid = new SudokuGridSvc.Grid(GRIDCONTAINER, onGridModif);
@@ -70,7 +71,7 @@
             gridModel = new SudokuModelSvc.GridModel();
 
             // désactive la sélection sur la grille à cause de ses effets indésirables
-            //document.getElementById(GRIDCONTAINER).onselectstart = new Function("return false");
+
             document.getElementById(GRIDCONTAINER).onselectstart = function () {
                 return false;
             }
@@ -154,6 +155,7 @@
             }
 
             else if (e.target.id === "sudokuPuzzleManuel") {
+                marksDisplayed = marks.NONE;
                 hideMainMenu();
                 hideMarksMenu();
                 showOkCancelMenu("OK", "Annuler");
@@ -603,17 +605,17 @@
             var op = 1;
             // initial opacity
             var timer = setInterval(function () {
-                    if (op <= 0.1) {
-                        clearInterval(timer);
-                        element.style.display = 'none';
-                        if (suite) {
-                            suite(p1, display);
-                        }
+                if (op <= 0.1) {
+                    clearInterval(timer);
+                    element.style.display = 'none';
+                    if (suite) {
+                        suite(p1, display);
                     }
-                    element.style.opacity = op;
-                    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                    op -= op * 0.1;
                 }
+                element.style.opacity = op;
+                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                op -= op * 0.1;
+            }
                 , 25);
         }
 
@@ -625,13 +627,13 @@
                 element.style.display = display;
             }
             var timer = setInterval(function () {
-                    if (op >= 1) {
-                        clearInterval(timer);
-                    }
-                    element.style.opacity = op;
-                    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                    op += op * 0.1;
+                if (op >= 1) {
+                    clearInterval(timer);
                 }
+                element.style.opacity = op;
+                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                op += op * 0.1;
+            }
                 , 25);
         }
 

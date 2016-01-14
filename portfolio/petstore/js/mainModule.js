@@ -2,10 +2,14 @@
 
     angular.module('petStoreApp', [{
             files: [
-                'portfolio/petstore/controllers/checkoutControllers.js',
-                'portfolio/petstore/controllers/productListControllers.js',
-                'portfolio/petstore/controllers/sportsStore.js',
-                'portfolio/petstore/components/cart/cart.js',
+                'portfolio/petstore/js/adminRouting.js',
+                'portfolio/petstore/components/shoppingCart/shoppingCart.js', //leave this here (due to race condition with other shoppingCart components)
+                'portfolio/petstore/controllers/cartSummaryController.js',
+                'portfolio/petstore/controllers/productListController.js',
+                'portfolio/petstore/controllers/petStoreController.js',
+                'portfolio/petstore/components/productsService.js',
+                'portfolio/petstore/components/shoppingCart/shoppingCartSummary.js',
+                'portfolio/petstore/components/shoppingCart/shoppingCartPanel.js',
                 'portfolio/petstore/filters/customFilters.js'
             ]
         }])
@@ -27,7 +31,7 @@
                     }
                 })
                 .state('root.portfolio.petstore.checkout', {
-                    url: 'checkout',
+                    url: '^/petstore/checkout',
                     views: {
                         'petstoreContent@root.portfolio': {
                             templateUrl: '/portfolio/petstore/views/checkoutSummary.html'
@@ -35,7 +39,7 @@
                     }
                 })
                 .state('root.portfolio.petstore.placeorder', {
-                    url: 'placeorder',
+                    url: '^/petstore/placeorder',
                     views: {
                         'petstoreContent@root.portfolio': {
                             templateUrl: '/portfolio/petstore/views/placeOrder.html'
@@ -43,7 +47,7 @@
                     }
                 })
                 .state('root.portfolio.petstore.complete', {
-                    url: 'complete',
+                    url: '^/petstore/complete',
                     views: {
                         'petstoreContent@root.portfolio': {
                             templateUrl: '/portfolio/petstore/views/thankYou.html'

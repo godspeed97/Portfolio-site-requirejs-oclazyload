@@ -18,7 +18,7 @@
 			.then(function (data) {
 				vm.points = data.skaterData.map(function (obj) {
 					return obj.data.split(',');
-				})
+				});
 			})
 			.catch(function (err) {
 				vm.errorPoints = err;
@@ -29,7 +29,7 @@
 			.then(function (data) {
 				vm.goals = data.skaterData.map(function (obj) {
 					return obj.data.split(',');
-				})
+				});
 			})
 			.catch(function (err) {
 				vm.errorGoals = err;
@@ -40,7 +40,7 @@
 			.then(function (data) {
 				vm.assists = data.skaterData.map(function (obj) {
 					return obj.data.split(',');
-				})
+				});
 			})
 			.catch(function (err) {
 				vm.errorAssists = err;

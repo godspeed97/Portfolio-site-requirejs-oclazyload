@@ -78,7 +78,6 @@
                 line: 0,
                 col: 0,
                 digit: 0
-
             }
 
 
@@ -87,8 +86,8 @@
 
             var container = document.getElementById(HTMLcontainerID);
             createSudokuGrid();
-            container.addEventListener("click", processClick.bind(this));
-            document.addEventListener("mouseover", processMouseOver.bind(this));
+            container.addEventListener("click", processClick);
+            document.addEventListener("mouseover", processMouseOver);
 
 
             /*******************************************
@@ -183,8 +182,6 @@
 
             // processClick
             // ***********
-
-
             function processClick(e) {
                 if (!enabled.editing) {
                     return false;
@@ -385,8 +382,8 @@
                 var r = "";
                 for (var line = 1; line <= 9; line++) {
                     for (var col = 1; col <= 9; col++) {
-                        for (var d = 1; d <= 9; d++) {
-                            var elem = document.getElementById(HTMLcontainerID + "subcell" + line + col + d);
+                        for (var digit = 1; digit <= 9; digit++) {
+                            var elem = document.getElementById(HTMLcontainerID + "subcell" + line + col + digit);
                             if (elem.style.color === colors.MARKED) {
                                 r += 'm';
                             }
@@ -409,8 +406,8 @@
                 var index = 0;
                 for (var line = 1; line <= 9; line++) {
                     for (var col = 1; col <= 9; col++) {
-                        for (var d = 1; d <= 9; d++) {
-                            var elem = document.getElementById(HTMLcontainerID + "subcell" + line + col + d);
+                        for (var digit = 1; digit <= 9; digit++) {
+                            var elem = document.getElementById(HTMLcontainerID + "subcell" + line + col + digit);
                             if (r && r.charAt(index) === 'm') {
                                 elem.style.color = colors.MARKED;
                             }

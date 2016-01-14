@@ -4,7 +4,7 @@
             'ui.router', //angular ui-router
             'ngAnimate', //for fade in effect on navigation view change
             'oc.lazyLoad', //lazy loading angular components
-            'controllersModule'
+            'myApp.controllers'
         ])
         .config(function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
 
@@ -75,6 +75,35 @@
                                         files: [
                                             'portfolio/' + $stateParams.id + '/js/mainModule.js',
                                             'portfolio/' + $stateParams.id + '/css/master.css'
+                                        ]
+                                    });
+                                }
+                            }
+                        }
+                    }
+                })
+                //.state('root.code', {
+                //    url: ':id/code',
+                //    views: {
+                //        'content@': {
+                //            templateUrl: function ($stateParams) {
+                //                return 'portfolio/' + $stateParams.id + '/code/index.html';
+                //            }
+                //        }
+                //    }
+                //})
+                .state('root.docs', {
+                    url: ':id/docs',
+                    views: {
+                        'content@': {
+                            templateUrl: function ($stateParams) {
+                                return 'portfolio/' + $stateParams.id + '/docs/index.html';
+                            },
+                            resolve: {
+                                load: function ($stateParams, $ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: [
+                                            'portfolio/' + $stateParams.id + '/docs/master.css'
                                         ]
                                     });
                                 }

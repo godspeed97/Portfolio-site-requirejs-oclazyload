@@ -607,11 +607,11 @@
 
                 // Vérification que deux sous-grilles sont disjointes ou pas
 
-                function isDisjoint(v, index) {
+                function isDisjoint(arr, index) {
                     var vv = subgrids[index];
                     var vvv = [];
-                    for (var i = 1; i < v.length; i++) {
-                        vvv = subgrids[v[i]];
+                    for (var i = 1; i < arr.length; i++) {
+                        vvv = subgrids[arr[i]];
                         for (var j = 1; j <= 9; j++) {
                             if (vv[j] === vvv[j]) {
                                 return false;

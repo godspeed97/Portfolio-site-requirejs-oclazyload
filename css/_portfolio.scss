@@ -10,9 +10,27 @@
 
 .portfolioCaption > h3, .portfolioCaption > p {
   color: #fff;
+  text-align: center;
 }
 
 .portfolioCaption > h3 {
   text-align: center;
   margin-top: -3px;
+}
+
+.portfolioWindow {
+  border: 2px solid red;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 600px;
+  &.docs {
+    padding: 10px;
+    & h2 {
+      text-align: center;
+    }
+    & h3 {
+      font-style: italic;
+    }
+  }
 }

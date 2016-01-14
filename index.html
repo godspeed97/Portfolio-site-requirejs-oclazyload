@@ -15,15 +15,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
 <div class="container">
-    <!-- row necessary? test without-->
     <div class="row">
         <div class="col-xs-12 text-center">
             <header ui-view="header"></header>
             <div ui-view="nav"></div>
-            <div ui-view="content" class="ngFade"></div>
+            <div ui-view="content" class="ngFade text-left"></div>
             <footer ui-view="footer"></footer>
         </div>
     </div>

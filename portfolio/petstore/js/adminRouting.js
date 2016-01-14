@@ -1,18 +1,31 @@
 (function () {
 
-	angular.module('petStoreAdmin', ['ngResource', 'ui.router'])
+	angular.module('petStoreAdmin', [{
+        files: [
+            'portfolio/petstore/controllers/adminControllers.js',
+            'portfolio/petstore/controllers/adminProductController.js'
+        ]
+    }])
 		.config(function ($stateProvider, $urlRouterProvider) {
 
-			$urlRouterProvider.otherwise('/login');
+			$urlRouterProvider.otherwise('^/petstore/login');
 
 			$stateProvider
-				.state('login', {
-					url: '/login',
-					templateUrl: '/views/adminLogin.html'
+				.state('root.portfolio.petstore.adminlogin', {
+					url: '^/petstore/adminlogin',
+                    views: {
+                        'petstoreContent@root.portfolio': {
+                            templateUrl: '/portfolio/petstore/views/adminLogin.html'
+                        }
+                    }
 				})
-				.state('main', {
-					url: '/main',
-					templateUrl: '/views/adminMain.html'
+				.state('root.portfolio.petstore.adminmain', {
+					url: '^/petstore/adminmain',
+                    views: {
+                        'petstoreContent@root.portfolio': {
+                            templateUrl: '/portfolio/petstore/views/adminMain.html'
+                        }
+                    }
 				});
 
 		});

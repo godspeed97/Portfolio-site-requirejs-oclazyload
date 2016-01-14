@@ -1,8 +1,8 @@
-.ng-invalid {
+.petStoreForm.ng-invalid {
     background-color: lightpink;
 }
 
-.ng-valid {
+.petStoreForm.ng-valid {
 	background-color: lightgreen;
 }
 

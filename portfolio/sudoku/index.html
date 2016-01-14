@@ -1,4 +1,29 @@
-﻿<div ng-controller="sudokuMainCtrl" class="sudokuMain">
+﻿<div ng-controller="sudokuMainCtrl" class="portfolioWindow">
+    <div class="instructions">
+        <ul>
+            <b>Instructions:</b>
+            <li>Pour commencer une nouvelle partie, sélectionner Puzzle -> Nouveau... -> Choisir difficulté.</li>
+            <li>Pour entrer un chiffre, cliquer de la gauche sur le chiffre désiré dans une case. Re-cliquer dessus pour
+                l'enlever.
+            </li>
+            <li>Pour entrer manuellement un candidat potentiel, cliquer sur "notes on" dans les options en bas, et
+                cliquer de la gauche en appuyant sur "Shift" sur le chiffre désiré dans une case. Re-cliquer de la
+                gauche en appuyant sur "Shift" pour l'éliminer comme candidat. Cliquer de la gauche sur le candidat pour
+                l'entrer comme réponse.
+            </li>
+            <li>Pour afficher tous les candidats potentiels, cliquer sur "candidats" dans les options en bas.</li>
+            <li>Pour entrer manuellement votre propre Sudoku, sélectionner Puzzle -> Manuel. Entrer les chiffres en
+                cliquant dans les cases et cliquer sur OK ou Annuler pour terminer.
+            </li>
+            <li>Pour entrer un Sudoku en forme canonique, sélectionner Puzzle -> Forme Canonique.
+                Exemple: ".......7.25..7.3" etc, où les points représentent des cases vides. Entrer de gauche à droite,
+                ligne par ligne (A1 à A9, B1 à B9, etc).
+            </li>
+            <li>Assistance -> Hints affichent des candidats qui peuvent être éliminer. Autoplay joue un certain nombre
+                de chiffres automatiquement. Check vérifie s'il y a des erreurs. Solution donne la solution.
+            </li>
+        </ul>
+    </div>
     <div id="sudoku">
         <nav id="sudokuMenuNav">
             <ul>
@@ -38,9 +63,11 @@
 
         <div id="sudokuBottomContainer">
             <div id="sudokuMarksMenu">
-                <input type='radio' name='test' value='1' id="sudokuMarksNONE" checked><span>notes off</span>
-                <input type='radio' name='test' value='3' id="sudokuMarksNOTES"><span>notes on</span>
-                <input type='radio' name='test' value='2' id="sudokuMarksCANDIDATES"><span>candidats</span>
+                <label><input type='radio' name='test' value='1' id="sudokuMarksNONE"
+                              checked><span>notes off</span></label>
+                <label><input type='radio' name='test' value='3' id="sudokuMarksNOTES"><span>notes on</span></label>
+                <label><input type='radio' name='test' value='2'
+                              id="sudokuMarksCANDIDATES"><span>candidats</span></label>
             </div>
 
             <div id="sudokuOkCancel">

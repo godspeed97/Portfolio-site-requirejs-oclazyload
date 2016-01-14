@@ -1,0 +1,405 @@
+<div class="portfolioWindow docs">
+    <h2>Calculator Business Rules</h2>
+
+    <h3>Internal State of the Calculator</h3>
+    <p>
+        The internal state of the calculator is determined by six variables:
+    </p>
+
+    <ul>
+        <li>display:</li>
+        <ul>
+            <li>string of characters representing what is displayed in the calculator's result field</li>
+            <li>initial value : '0'</li>
+        </ul>
+
+        <li>memory:</li>
+        <ul>
+            <li>string of characters representing the content of the calculator's memory field</li>
+            <li>initial value : '0'</li>
+        </ul>
+
+        <li>captureModeOn:</li>
+        <ul>
+            <li>boolean value used to define the nature of 'display'</li>
+            <li>false:</li>
+            <ul>
+                <li>'display' is a result rather than a number being entered (captured) by the user</li>
+                <li>eg: if the user wants to multiply 15 by 10, he presses these keys: '1', '5', '*', '1', '0', '='</li>
+                <li>the display field now reads '150', and corresponds to the result of a calculation, as opposed to a
+                    number being entered by the user
+                </li>
+            </ul>
+            <li>true:</li>
+            <ul>
+                <li>'display' is a number currently being entered (captured) by the user</li>
+                <li>initial value : false</li>
+            </ul>
+        </ul>
+
+        <li>operator:</li>
+        <ul>
+            <li>the last binary operator ( '+', '-', '*' or '/') used</li>
+            <li>reset to '+' after processing the '=' operator</li>
+            <li>initial value : '+'</li>
+        </ul>
+
+        <li>firstOperand:</li>
+        <ul>
+            <li>copy of 'display' following the processing of binary operator ('+', '-', '*' or '/')</li>
+            <li>reset to '0' after processing the '=' operator</li>
+            <li>initial value : '0'</li>
+        </ul>
+
+        <li>lastKey:</li>
+        <ul>
+            <li>last key pressed by the user</li>
+            <li>initial value : '0'</li>
+        </ul>
+    </ul>
+
+    <h3>Input Processing</h3>
+    <p>The input processing rules that must be applied when the user clicks on a key are the following:</p>
+    <ul>
+        <li>if key is a redundant operator, do nothing</li>
+        <li>if key is not a redundant operator:</li>
+        <ul>
+            <li>lastKey ← key</li>
+            <li>apply the rules as described in the rules table</li>
+        </ul>
+    </ul>
+
+    <h3>Key Redundancy Detection</h3>
+    <ul>
+        <li>The objective is to determine whether the user has clicked on the same binary operator more than once, and
+            to ignore subsequent clicks if this is the case
+        </li>
+        <li>Definition: key is a redundant operator if key is the same as lastKey and key is a binary operator ('+',
+            '-', '*', '/', or '=')
+        </li>
+    </ul>
+
+    <h3>Rules Tables</h3>
+    <table class="table table-bordered table-condensed">
+        <thead>
+        <tr>
+            <th>Key</th>
+            <th>Processing</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>'0' to '9'</td>
+            <td>
+                <ul>
+                    <li>if captureModeOn is false: captureModeOn ← true & display ← key</li>
+                    <li>if captureModeOn is true:</li>
+                    <ul>
+                        <li>if value of display is '0'</li>
+                        <ul>
+                            <li>if value of key is '0': do nothing</li>
+                            <li>if value of key is not '0': display ← key</li>
+                        </ul>
+                        <li>if value of display is not '0': display ← display + key (concatenation)</li>
+                    </ul>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'.'</td>
+            <td>
+                <ul>
+                    <li>if captureModeOn is true and display doesn't contain a '.' : display ← display + '.'</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'+', '-', '*', '/'</td>
+            <td>
+                <ul>
+                    <li>if captureModeOn is true:</li>
+                    <ul>
+                        <li>captureModeOn ← false</li>
+                        <li>firstOperand ← firstOperand operator display (eg: firstOperand + display)</li>
+                        <li>display ← firstOperand</li>
+                        <li>operator ← key</li>
+                    </ul>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'='</td>
+            <td>
+                <ul>
+                    <li>if captureModeOn is true:</li>
+                    <ul>
+                        <li>captureModeOn ← false</li>
+                        <li>firstOperand ← firstOperand operator display (eg: firstOperand + display)</li>
+                        <li>display ← firstOperand</li>
+                        <li>operator ← key</li>
+                        <li>firstOperand ← 0</li>
+                        <li>operator ← '+'</li>
+                    </ul>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'MS'</td>
+            <td>
+                <ul>
+                    <li>memory ← display</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'M+'</td>
+            <td>
+                <ul>
+                    <li>memory ← memory + display</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'M-'</td>
+            <td>
+                <ul>
+                    <li>memory ← memory - display</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'MC'</td>
+            <td>
+                <ul>
+                    <li>memory ←  '0'</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'MR'</td>
+            <td>
+                <ul>
+                    <li>captureModeOn ← false</li>
+                    <li>display ← memory</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'&larr;'</td>
+            <td>
+                <ul>
+                    <li>if captureModeOn is true:</li>
+                    <ul>
+                        <li>remove last character from display</li>
+                    </ul>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'&radic;'</td>
+            <td>
+                <ul>
+                    <li>display ← square root of display</li>
+                    <li>captureModeOn ← false</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'1/x'</td>
+            <td>
+                <ul>
+                    <li>display ← 1 / display</li>
+                    <li>captureModeOn ← false</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'%'</td>
+            <td>
+                <ul>
+                    <li>display ← display / 100</li>
+                    <li>captureModeOn ← false</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'+/-'</td>
+            <td>
+                <ul>
+                    <li>if display is a positive number, display ← '-' + display, otherwise display ← display.substring(1)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'C'</td>
+            <td>
+                <ul>
+                    <li>display ← '0', captureModeOn ← false,  operator ← '+' , lastKey = '0', firstOperand = '0'</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>'CE'</td>
+            <td>
+                <ul>
+                    <li>display ← '0', captureModeOn ← false</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Example</h3>
+    <p>This table presents the state of the calculator after the following clicks: 	3+22*4=2+3=*2=</p>
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+        <tr>
+            <th>key</th>
+            <th>display</th>
+            <th>captureModeOn</th>
+            <th>operator</th>
+            <th>firstOperand</th>
+            <th>memory</th>
+            <th>lastKey</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>'0'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+            </tr>
+            <tr>
+                <td>'3'</td>
+                <td>'3'</td>
+                <td>TRUE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'3'</td>
+            </tr>
+            <tr>
+                <td>'+'</td>
+                <td>'3'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'3'</td>
+                <td>'0'</td>
+                <td>'+'</td>
+            </tr>
+            <tr>
+                <td>'2'</td>
+                <td>'2'</td>
+                <td>TRUE</td>
+                <td>'+'</td>
+                <td>'3'</td>
+                <td>'0'</td>
+                <td>'2'</td>
+            </tr>
+            <tr>
+                <td>'2'</td>
+                <td>'22'</td>
+                <td>TRUE</td>
+                <td>'+'</td>
+                <td>'3'</td>
+                <td>'0'</td>
+                <td>'2'</td>
+            </tr>
+            <tr>
+                <td>'*'</td>
+                <td>'25'</td>
+                <td>FALSE</td>
+                <td>'*'</td>
+                <td>'25'</td>
+                <td>'0'</td>
+                <td>'*'</td>
+            </tr>
+            <tr>
+                <td>'4'</td>
+                <td>'4'</td>
+                <td>TRUE</td>
+                <td>'*'</td>
+                <td>'25'</td>
+                <td>'0'</td>
+                <td>'4'</td>
+            </tr>
+            <tr>
+                <td>'='</td>
+                <td>'100'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'='</td>
+            </tr>
+            <tr>
+                <td>'2'</td>
+                <td>'2'</td>
+                <td>TRUE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'2'</td>
+            </tr>
+            <tr>
+                <td>'+'</td>
+                <td>'2'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'2'</td>
+                <td>'0'</td>
+                <td>'+'</td>
+            </tr>
+            <tr>
+                <td>'3'</td>
+                <td>'3'</td>
+                <td>TRUE</td>
+                <td>'+'</td>
+                <td>'2'</td>
+                <td>'0'</td>
+                <td>'3'</td>
+            </tr>
+            <tr>
+                <td>'='</td>
+                <td>'5'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'='</td>
+            </tr>
+            <tr>
+                <td>'*'</td>
+                <td>'5'</td>
+                <td>FALSE</td>
+                <td>'*'</td>
+                <td>'5'</td>
+                <td>'0'</td>
+                <td>'*'</td>
+            </tr>
+            <tr>
+                <td>'2'</td>
+                <td>'2'</td>
+                <td>TRUE</td>
+                <td>'*'</td>
+                <td>'5'</td>
+                <td>'0'</td>
+                <td>'2'</td>
+            </tr>
+            <tr>
+                <td>'='</td>
+                <td>'10'</td>
+                <td>FALSE</td>
+                <td>'+'</td>
+                <td>'0'</td>
+                <td>'0'</td>
+                <td>'='</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

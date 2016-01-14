@@ -1,12 +1,12 @@
-<div ng-controller="petStoreCtrl as petstore" class="petstore-main">
+<div ng-controller="petStoreCtrl as petStore" class="portfolioWindow">
     <div class="navbar">
         <a class="navbar-brand" ui-sref="root.portfolio.petstore">PET STORE</a>
-        <div cart-summary></div>
+        <div shopping-cart-summary></div>
         <!--cartSummary directive in cart.js, which invokes cartSummary.html-->
     </div>
     <div class="alert alert-danger" ng-show="petStore.data.error">
         Error ({{petStore.data.error.status}}). The product data was not loaded.
-        <a href="/index.html" class="alert alert-link">Click here to try again</a>
+        <a ui-sref="root.portfolio.petstore" class="alert alert-link">Click here to try again</a>
     </div>
     <div ui-view="petstoreContent"></div>
 </div>

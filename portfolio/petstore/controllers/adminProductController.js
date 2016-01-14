@@ -1,48 +1,52 @@
 (function () {
 
     angular.module('petStoreAdmin')
-        .constant('productUrl', 'http://localhost:5500/products/')
-        .config(function ($httpProvider) {
-            $httpProvider.defaults.withCredentials = true;
-        })
-        .controller('productCtrl', function ($resource, productUrl) {
-            
-            var vm = this;
+        //.constant('productUrl', 'http://localhost:5500/products/')
+        //.config(config)
+        .controller('adminProductCtrl', adminProductCtrl);
 
-            vm.productsResource = $resource(productUrl + ':id', { id: '@id' });
+    function config($httpProvider) {
+        $httpProvider.defaults.withCredentials = true;
+    }
 
-            vm.listProducts = function () {
-                vm.products = vm.productsResource.query();
-            };
+    function adminProductCtrl($resource, productUrl) {
 
-            vm.deleteProduct = function (product) {
-                product.$delete().then(function () {
-                    vm.products.splice(vm.products.indexOf(product), 1);
-                });
-            };
+        var vm = this;
 
-            vm.createProduct = function (product) {
-                new vm.productsResource(product).$save().then(function (newProduct) {
-                    vm.products.push(newProduct);
-                    vm.editedProduct = null;
-                });
-            };
+        vm.productsResource = $resource(productUrl + ':id', {id: '@id'});
 
-            vm.updateProduct = function (product) {
-                product.$save();
+        vm.listProducts = function () {
+            vm.products = vm.productsResource.query();
+        };
+
+        vm.deleteProduct = function (product) {
+            product.$delete().then(function () {
+                vm.products.splice(vm.products.indexOf(product), 1);
+            });
+        };
+
+        vm.createProduct = function (product) {
+            new vm.productsResource(product).$save().then(function (newProduct) {
+                vm.products.push(newProduct);
                 vm.editedProduct = null;
-            };
+            });
+        };
 
-            vm.startEdit = function (product) {
-                vm.editedProduct = product;
-            };
+        vm.updateProduct = function (product) {
+            product.$save();
+            vm.editedProduct = null;
+        };
 
-            vm.cancelEdit = function () {
-                vm.editedProduct = null;
-            };
+        vm.startEdit = function (product) {
+            vm.editedProduct = product;
+        };
 
-            vm.listProducts();
+        vm.cancelEdit = function () {
+            vm.editedProduct = null;
+        };
 
-        });
+        vm.listProducts();
+
+    }
 
 })();
