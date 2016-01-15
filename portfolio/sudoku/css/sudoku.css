@@ -1,10 +1,3 @@
-.instructions {
-    text-align: left;
-    width: 350px;
-    float: right;
-    margin-right: 15px;
-}
-
 #sudoku {
     position: relative;
     width: 400px;
@@ -13,6 +6,11 @@
     border-radius: 4%;
     margin: 0 auto;
     text-align: center;
+}
+
+.instructions {
+    margin: 0 auto;
+    text-align: left;
 }
 
 #sudokuGrid {
@@ -58,6 +56,4 @@
     height: 12%;
     z-index: 1;
 }
-
-
 

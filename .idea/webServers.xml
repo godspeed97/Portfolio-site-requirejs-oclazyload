@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d08c02fc-875a-4e78-9f84-29acd049ad15" name="Portfolio Website" url="http://olivier.casa73.com">
+        <fileTransfer host="olivier.casa73.com" port="21" password="dfe2dfd2df9bdfc9dfc4dfd8dfdcdfd9df92dfd8df86dffa" username="maison73">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

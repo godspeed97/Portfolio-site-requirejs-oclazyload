@@ -62,7 +62,9 @@
          2 - initialisation unique
          ***************************************************************************************************/
         function init() {
-            
+
+            //adjustSize();
+
             // création dynamique de la grille de 81 cellules; le callback "onGridModif" (défini plus loin)
             // sera appelé pour permettre ou empêcher l'action de tout clic sur la grille
             grid = new SudokuGridSvc.Grid(GRIDCONTAINER, onGridModif);
@@ -85,6 +87,22 @@
             setDisplayToInitial();
 
             // tout est prêt; on tombe en attente d'évènements pour le reste ...
+        }
+
+        function adjustSize() {
+            // 70% * H = 95% * W
+            var su = document.getElementById("sudoku");
+            var hmax = window.innerHeight * .95;
+            var wmax = window.innerWidth * .95;
+            var h = .7 * hmax;
+            var w = h;
+
+            if (w / .95 > wmax) {
+                w = h = .95 * wmax;
+            }
+
+            su.style.height = Math.floor(h / .7) + "px";
+            su.style.width = Math.floor(w / .95) + "px";
         }
 
 
@@ -485,7 +503,7 @@
                     else {
                         var candidates = gridModel.getCandidates(line, col);
                         if (!candidates[solution]) {
-                            Message += "Candidat solution supprimé en " + "xABCDEFGHI".charAt(line) + col + "\n";
+                            Message += "Le candidat correspondant à la solution a été supprimé en " + "xABCDEFGHI".charAt(line) + col + "\n";
                         }
                     }
                 }
@@ -605,17 +623,17 @@
             var op = 1;
             // initial opacity
             var timer = setInterval(function () {
-                if (op <= 0.1) {
-                    clearInterval(timer);
-                    element.style.display = 'none';
-                    if (suite) {
-                        suite(p1, display);
+                    if (op <= 0.1) {
+                        clearInterval(timer);
+                        element.style.display = 'none';
+                        if (suite) {
+                            suite(p1, display);
+                        }
                     }
+                    element.style.opacity = op;
+                    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                    op -= op * 0.1;
                 }
-                element.style.opacity = op;
-                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                op -= op * 0.1;
-            }
                 , 25);
         }
 
@@ -627,13 +645,13 @@
                 element.style.display = display;
             }
             var timer = setInterval(function () {
-                if (op >= 1) {
-                    clearInterval(timer);
+                    if (op >= 1) {
+                        clearInterval(timer);
+                    }
+                    element.style.opacity = op;
+                    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                    op += op * 0.1;
                 }
-                element.style.opacity = op;
-                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                op += op * 0.1;
-            }
                 , 25);
         }
 

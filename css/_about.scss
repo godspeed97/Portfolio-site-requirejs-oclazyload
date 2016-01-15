@@ -1,4 +1,10 @@
 .aboutText {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .aboutText {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 }

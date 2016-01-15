@@ -1,14 +1,73 @@
 ﻿<div ng-controller="sudokuMainCtrl" class="portfolioWindow">
-    <div class="instructions">
+    <div class="col-xs-12 col-sm-6">
+        <div id="sudoku">
+            <nav id="sudokuMenuNav">
+                <ul>
+                    <li><span>Puzzle</span>
+                        <ul>
+                            <li><span>Nouveau...</span>
+                                <ul>
+                                    <li><span id="puzzleFacile">Facile</span></li>
+                                    <li><span id="puzzleMoyen">Moyen</span></li>
+                                    <li><span id="puzzleDifficile">Difficile</span></li>
+                                    <li><span id="puzzleTresDifficile">Très difficile</span></li>
+                                </ul>
+                            </li>
+                            <li><span id="sudokuPuzzleManuel">Manuel</span></li>
+                            <li><span id="sudokuInCanonique">Forme Canonique</span></li>
+                            <li><span id="sudokuReset">Reset</span></li>
+                        </ul>
+                    </li>
+                    <li id="sudokuMenuAffichage"><span>Affichage</span>
+                        <ul>
+                            <li><span id="sudokuOutCanonique">Forme Canonique</span></li>
+                        </ul>
+                    </li>
+                    <li id="sudokuMenuAssistance"><span>Assistance</span>
+                        <ul>
+                            <li><span id="sudokuHints">Hints</span></li>
+                            <li><span id="sudokuAutoPlay">Autoplay</span></li>
+                            <li><span id="sudokuCheck">Check</span></li>
+                            <li><span id="sudokuSolution">Solution</span></li>
+                        </ul>
+                    </li>
+                    <li><span>Aide</span></li>
+                </ul>
+            </nav>
+
+            <div id="sudokuGrid"></div>
+
+            <div id="sudokuBottomContainer">
+                <div id="sudokuMarksMenu">
+                    <label><input type='radio' name='test' value='1' id="sudokuMarksNONE"
+                                  checked><span>notes off</span></label>
+                    <label><input type='radio' name='test' value='3' id="sudokuMarksNOTES"><span>notes on</span></label>
+                    <label><input type='radio' name='test' value='2'
+                                  id="sudokuMarksCANDIDATES"><span>candidats</span></label>
+                </div>
+
+                <div id="sudokuOkCancel">
+                    <button id="sudokuOkBtn">OK</button>
+                    <button id="sudokuCancelBtn">Annuler</button>
+                </div>
+            </div>
+
+            <textarea readonly id="sudokuDialog"></textarea>
+        </div>
+    </div>
+
+    <div class="instructions col-xs-12 col-sm-6">
         <ul>
-            <b>Instructions:</b>
+            <h4>Instructions:</h4>
             <li>Pour commencer une nouvelle partie, sélectionner Puzzle -> Nouveau... -> Choisir difficulté.</li>
-            <li>Pour entrer un chiffre, cliquer de la gauche sur le chiffre désiré dans une case. Re-cliquer dessus pour
+            <li>Pour entrer un chiffre, cliquer de la gauche sur le chiffre désiré dans une case. Re-cliquer dessus
+                pour
                 l'enlever.
             </li>
             <li>Pour entrer manuellement un candidat potentiel, cliquer sur "notes on" dans les options en bas, et
                 cliquer de la gauche en appuyant sur "Shift" sur le chiffre désiré dans une case. Re-cliquer de la
-                gauche en appuyant sur "Shift" pour l'éliminer comme candidat. Cliquer de la gauche sur le candidat pour
+                gauche en appuyant sur "Shift" pour l'éliminer comme candidat. Cliquer de la gauche sur le candidat
+                pour
                 l'entrer comme réponse.
             </li>
             <li>Pour afficher tous les candidats potentiels, cliquer sur "candidats" dans les options en bas.</li>
@@ -16,67 +75,15 @@
                 cliquant dans les cases et cliquer sur OK ou Annuler pour terminer.
             </li>
             <li>Pour entrer un Sudoku en forme canonique, sélectionner Puzzle -> Forme Canonique.
-                Exemple: ".......7.25..7.3" etc, où les points représentent des cases vides. Entrer de gauche à droite,
+                Exemple: ".......7.25..7.3" etc, où les points représentent des cases vides. Entrer de gauche à
+                droite,
                 ligne par ligne (A1 à A9, B1 à B9, etc).
             </li>
-            <li>Assistance -> Hints affichent des candidats qui peuvent être éliminer. Autoplay joue un certain nombre
+            <li>Assistance -> Hints affichent des candidats qui peuvent être éliminer. Autoplay joue un certain
+                nombre
                 de chiffres automatiquement. Check vérifie s'il y a des erreurs. Solution donne la solution.
             </li>
         </ul>
-    </div>
-    <div id="sudoku">
-        <nav id="sudokuMenuNav">
-            <ul>
-                <li><span>Puzzle</span>
-                    <ul>
-                        <li><span>Nouveau...</span>
-                            <ul>
-                                <li><span id="puzzleFacile">Facile</span></li>
-                                <li><span id="puzzleMoyen">Moyen</span></li>
-                                <li><span id="puzzleDifficile">Difficile</span></li>
-                                <li><span id="puzzleTresDifficile">Très difficile</span></li>
-                            </ul>
-                        </li>
-                        <li><span id="sudokuPuzzleManuel">Manuel</span></li>
-                        <li><span id="sudokuInCanonique">Forme Canonique</span></li>
-                        <li><span id="sudokuReset">Reset</span></li>
-                    </ul>
-                </li>
-                <li id="sudokuMenuAffichage"><span>Affichage</span>
-                    <ul>
-                        <li><span id="sudokuOutCanonique">Forme Canonique</span></li>
-                    </ul>
-                </li>
-                <li id="sudokuMenuAssistance"><span>Assistance</span>
-                    <ul>
-                        <li><span id="sudokuHints">Hints</span></li>
-                        <li><span id="sudokuAutoPlay">Autoplay</span></li>
-                        <li><span id="sudokuCheck">Check</span></li>
-                        <li><span id="sudokuSolution">Solution</span></li>
-                    </ul>
-                </li>
-                <li><span>Aide</span></li>
-            </ul>
-        </nav>
-
-        <div id="sudokuGrid"></div>
-
-        <div id="sudokuBottomContainer">
-            <div id="sudokuMarksMenu">
-                <label><input type='radio' name='test' value='1' id="sudokuMarksNONE"
-                              checked><span>notes off</span></label>
-                <label><input type='radio' name='test' value='3' id="sudokuMarksNOTES"><span>notes on</span></label>
-                <label><input type='radio' name='test' value='2'
-                              id="sudokuMarksCANDIDATES"><span>candidats</span></label>
-            </div>
-
-            <div id="sudokuOkCancel">
-                <button id="sudokuOkBtn">OK</button>
-                <button id="sudokuCancelBtn">Annuler</button>
-            </div>
-        </div>
-
-        <textarea readonly id="sudokuDialog"></textarea>
     </div>
 
 </div>
