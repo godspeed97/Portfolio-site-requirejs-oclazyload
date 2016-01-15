@@ -29,7 +29,7 @@ require.config({
             deps: ['angular']
         },
         'contactFormController': {
-            deps: ['angular']
+            deps: ['angular', 'controllersModule']
         },
         'app': {
             deps: ['angular', 'angular-ui-router', 'angular-animate', 'oclazyload', 'controllersModule', 'contactFormController']
