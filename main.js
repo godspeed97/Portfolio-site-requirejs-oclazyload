@@ -9,7 +9,7 @@ require.config({
         'oclazyload': ['node_modules/oclazyload/dist/ocLazyLoad.min'],
         'controllersModule': 'js/modules/controllersModule',
         'contactFormController': 'js/controllers/contactFormController',
-        'app': 'js/app'
+        'app': 'js/assets/app'
     },
 
     shim: {
