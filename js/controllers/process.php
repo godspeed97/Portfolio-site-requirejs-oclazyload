@@ -1,8 +1,9 @@
 <?php
+
 $errors = array(); // array to hold validation errors
 $data = array(); // array to pass back data
 $data['success'] = true;
-$data['messageSuccess'] = 'Hey! Thanks for reaching out. I will get back to you soon';
+$data['successMessage'] = 'Thanks for reaching out. I will get back to you soon.';
 $email_to = "olivier.tr@hotmail.com";
 $email_subject = "message submission";
 $name = $_POST['name']; // required
@@ -21,4 +22,5 @@ $headers = 'From: '.$email_from."rn".
 
 // return all our data to an AJAX call
 echo json_encode($data);
+
 ?>

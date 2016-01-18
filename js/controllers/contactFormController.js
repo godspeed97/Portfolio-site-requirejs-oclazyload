@@ -16,8 +16,6 @@
 
         vm.formData = {};
 
-        vm.submission = false;
-
         var param = function (data) {
             var returnString = '';
             for (d in data) {
@@ -31,22 +29,17 @@
         vm.formSubmit = function () {
             $http({
                 method: 'POST',
-                url: 'process.php',
+                url: 'http://olivier.casa73.com/js/controllers/process.php',
                 data: param(vm.formData),
-                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })
-                .then(function (data) {
-                    if (!data.success) {
-                        vm.submissionMessage = data.messageError;
-                        vm.submission = true;
-                    } else {
-                        vm.submissionMessage = data.messageSuccess;
-                        vm.formData = {};
-                        vm.submission = true;
-                    }
+                .then(function (response) {
+                    vm.successMessage = response.data.successMessage;
+                    vm.formData = {};
                 })
                 .catch(function (err) {
-                    console.log(err);
+                    vm.errorMessage = err;
+                    vm.formData = {};
                 });
         }
 
