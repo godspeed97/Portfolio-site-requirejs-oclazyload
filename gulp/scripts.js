@@ -5,10 +5,10 @@ var gulp = require('gulp'),
 
 gulp.task('js-main', function () {
     gulp.src('js/app.js')
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(ngAnnotate())
         .pipe(uglify({ mangle: false }))
-        .pipe(sourcemaps.write())
+        //.pipe(sourcemaps.write())
         .pipe(gulp.dest('js/assets'))
 });
 

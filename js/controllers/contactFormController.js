@@ -3,7 +3,7 @@
     angular.module('myApp.controllers')
         .controller('formCtrl', formCtrl);
 
-    function formCtrl($http) {
+    function formCtrl($scope, $http) {
 
         /* jshint validthis: true */
         var vm = this;
@@ -29,7 +29,7 @@
         vm.formSubmit = function () {
             $http({
                 method: 'POST',
-                url: 'http://olivier.casa73.com/js/controllers/process.php',
+                url: 'php/process.php',
                 data: param(vm.formData),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })
