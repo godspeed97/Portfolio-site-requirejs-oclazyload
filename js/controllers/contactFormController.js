@@ -31,7 +31,7 @@
                 method: 'POST',
                 url: 'php/process.php',
                 data: param(vm.formData),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'} //{'Content-Type': 'multipart/form-data'}
             })
                 .then(function (response) {
                     vm.successMessage = response.data.successMessage;
