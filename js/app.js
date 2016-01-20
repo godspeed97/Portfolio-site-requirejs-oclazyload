@@ -73,8 +73,8 @@
                                 load: function ($stateParams, $ocLazyLoad) {
                                     return $ocLazyLoad.load({
                                         files: [
-                                            'portfolio/' + $stateParams.id + '/js/mainModule.js',
-                                            'portfolio/' + $stateParams.id + '/css/master.css'
+                                            'portfolio/' + $stateParams.id + '/public/js/mainModule.min.js',
+                                            'portfolio/' + $stateParams.id + '/public/css/master.css'
                                         ]
                                     });
                                 }

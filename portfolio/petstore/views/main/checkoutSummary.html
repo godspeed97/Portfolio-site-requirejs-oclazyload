@@ -1,0 +1,55 @@
+<h2>Your Cart</h2>
+
+<div ng-controller="cartSummaryCtrl as cartSummary">
+
+    <div class="alert alert-warning" ng-show="cartSummary.cartData.length === 0">
+        There are no products in your shopping cart.
+        <a ui-sref="root.portfolio.petstore" class="alert-link">Click here to return to the catalogue.</a>
+    </div>
+
+    <div ng-hide="cartSummary.cartData.length === 0">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Item</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+                <th class="text-center">Add/Remove</th>
+                <th class="text-center">Remove All</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in cartSummary.cartData">
+                <td class="text-left">{{item.count}}</td>
+                <td class="text-left">{{item.name}}</td>
+                <td class="text-right">{{item.price | currency}}</td>
+                <td class="text-right">{{(item.price * item.count) | currency}}</td>
+                <td>
+                    <button class="btn btn-sm btn-default" ng-click="cartSummary.productPlusOne(item.name)">+</button>
+                    <button class="btn btn-sm btn-default" ng-click="cartSummary.productMinusOne(item.name)">-</button>
+                </td>
+                <td>
+                    <button ng-click="cartSummary.removeProductFromCart(item.name)" class="btn btn-sm btn-warning">Remove All</button>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    {{cartSummary.total() | currency}}
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+
+        <div class="text-center">
+            <a class="btn btn-primary" ui-sref="root.portfolio.petstore">Continue Shopping</a>
+            <a class="btn btn-primary" ui-sref="root.portfolio.petstore.placeorder">Place Order Now</a>
+        </div>
+
+    </div>
+
+</div>

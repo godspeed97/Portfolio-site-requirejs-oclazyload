@@ -1,12 +1,6 @@
 (function () {
 
-	angular.module('nhlStatsApp', [{
-		files: [
-			'portfolio/nhlstats/js/nhlStatsController.js',
-			'portfolio/nhlstats/js/nhlTeamsController.js',
-			'portfolio/nhlstats/js/nhlStatsService.js'
-		]
-	}])
+	angular.module('nhlStatsApp', [])
 		.config(function ($stateProvider, $urlRouterProvider) {
 			
 			$urlRouterProvider.otherwise('/teams');

@@ -15,7 +15,7 @@
 					url: '^/petstore/adminlogin',
                     views: {
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/adminLogin.html'
+                            templateUrl: '/portfolio/petstore/views/admin/adminLogin.html'
                         }
                     }
 				})
@@ -23,7 +23,7 @@
 					url: '^/petstore/adminmain',
                     views: {
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/adminMain.html'
+                            templateUrl: '/portfolio/petstore/views/admin/adminMain.html'
                         }
                     }
 				});

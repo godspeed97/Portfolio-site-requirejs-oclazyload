@@ -1,18 +1,6 @@
 (function () {
 
-    angular.module('petStoreApp', [{
-            files: [
-                'portfolio/petstore/js/adminRouting.js',
-                'portfolio/petstore/components/shoppingCart/shoppingCart.js', //leave this here (due to race condition with other shoppingCart components)
-                'portfolio/petstore/controllers/cartSummaryController.js',
-                'portfolio/petstore/controllers/productListController.js',
-                'portfolio/petstore/controllers/petStoreController.js',
-                'portfolio/petstore/components/productsService.js',
-                'portfolio/petstore/components/shoppingCart/shoppingCartSummary.js',
-                'portfolio/petstore/components/shoppingCart/shoppingCartPanel.js',
-                'portfolio/petstore/filters/customFilters.js'
-            ]
-        }])
+    angular.module('petStoreApp', [])
         .config(function ($stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('/catalogue');
@@ -24,7 +12,7 @@
                         // relative: 'petstoreContent' (ui-view='petstoreContent') or '' (ui-view)
                         // absolute: 'petstoreContent@root.portfolio' (ui-view='petstoreContent')
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/productList.html',
+                            templateUrl: '/portfolio/petstore/views/main/productList.html',
                             controller: 'petStoreCtrl',
                             controllerAs: 'petStore'
                         }
@@ -34,7 +22,7 @@
                     url: '^/petstore/checkout',
                     views: {
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/checkoutSummary.html'
+                            templateUrl: '/portfolio/petstore/views/main/checkoutSummary.html'
                         }
                     }
                 })
@@ -42,7 +30,7 @@
                     url: '^/petstore/placeorder',
                     views: {
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/placeOrder.html'
+                            templateUrl: '/portfolio/petstore/views/main/placeOrder.html'
                         }
                     }
                 })
@@ -50,7 +38,7 @@
                     url: '^/petstore/complete',
                     views: {
                         'petstoreContent@root.portfolio': {
-                            templateUrl: '/portfolio/petstore/views/thankYou.html'
+                            templateUrl: '/portfolio/petstore/views/main/thankYou.html'
                         }
                     }
                 });
