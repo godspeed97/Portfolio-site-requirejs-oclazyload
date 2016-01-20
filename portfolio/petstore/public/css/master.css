@@ -1,0 +1,30 @@
+#productTable {
+  width: auto; }
+
+#productTable td {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+#productTable td input {
+  max-width: 125px; }
+
+.navbar-right.petstore {
+  float: right !important;
+  margin-right: 5px; }
+
+.navbar-text.petstore {
+  margin-right: 10px; }
+
+.petStoreForm.ng-invalid {
+  background-color: lightpink; }
+
+.petStoreForm.ng-valid {
+  background-color: lightgreen; }
+
+span.error {
+  color: red;
+  font-weight: bold; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9hZG1pblByb2R1Y3RzLnNjc3MiLCJfc2hvcHBpbmdDYXJ0U3VtbWFyeS5zY3NzIiwiX3BsYWNlT3JkZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLFlBQVksRUFDWjs7QUFFRDtFQUNDLGlCQUFpQjtFQUNqQix3QkFBd0I7RUFDeEIsaUJBQWlCO0VBQ2pCLG9CQUFvQixFQUNwQjs7QUFFRDtFQUNDLGlCQUFpQixFQUNqQjs7QUNiRDtFQUNDLHdCQUF3QjtFQUN4QixrQkFBa0IsRUFDbEI7O0FBRUQ7RUFDQyxtQkFBbUIsRUFDbkI7O0FDUEQ7RUFDSSw0QkFBNEIsRUFDL0I7O0FBRUQ7RUFDQyw2QkFBNkIsRUFDN0I7O0FBRUQ7RUFDSSxXQUFXO0VBQ1gsa0JBQWtCLEVBQ3JCIiwiZmlsZSI6Im1hc3Rlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjcHJvZHVjdFRhYmxlIHtcclxuXHR3aWR0aDogYXV0bztcclxufVxyXG5cclxuI3Byb2R1Y3RUYWJsZSB0ZCB7XHJcblx0bWF4LXdpZHRoOiAxNTBweDtcclxuXHR0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxuXHRvdmVyZmxvdzogaGlkZGVuO1xyXG5cdHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbn1cclxuXHJcbiNwcm9kdWN0VGFibGUgdGQgaW5wdXQge1xyXG5cdG1heC13aWR0aDogMTI1cHg7XHJcbn0iLCIubmF2YmFyLXJpZ2h0LnBldHN0b3JlIHtcclxuXHRmbG9hdDogcmlnaHQgIWltcG9ydGFudDtcclxuXHRtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG5cclxuLm5hdmJhci10ZXh0LnBldHN0b3JlIHtcclxuXHRtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbn0iLCIucGV0U3RvcmVGb3JtLm5nLWludmFsaWQge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRwaW5rO1xyXG59XHJcblxyXG4ucGV0U3RvcmVGb3JtLm5nLXZhbGlkIHtcclxuXHRiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyZWVuO1xyXG59XHJcblxyXG5zcGFuLmVycm9yIHtcclxuICAgIGNvbG9yOiByZWQ7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */

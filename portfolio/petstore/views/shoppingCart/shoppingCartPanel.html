@@ -1,0 +1,24 @@
+<div class="well">
+    <b>Your Cart:</b>
+    <div class="alert alert-warning" ng-show="summaryPanel.cartData.length === 0">
+        There are no products in your shopping cart.
+    </div>
+
+    <div ng-hide="summaryPanel.cartData.length === 0">
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="item in summaryPanel.cartData">
+                    <td class="text-left">{{item.count}}x</td>
+                    <td class="text-left">{{item.name}}</td>
+                    <td class="text-left">{{(item.price * item.count) | currency}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-default" ng-click="summaryPanel.productPlusOne(item.name)">+</button>
+                        <button class="btn btn-sm btn-default" ng-click="summaryPanel.productMinusOne(item.name)">-</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <a ui-sref="root.portfolio.petstore.checkout" class="btn btn-default">Checkout</a>
+</div>
