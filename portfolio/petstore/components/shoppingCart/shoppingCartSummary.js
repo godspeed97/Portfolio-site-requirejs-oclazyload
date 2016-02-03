@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('shoppingCart')
-        .directive('shoppingCartSummary', shoppingCartSummary)
+        .directive('shoppingCartSummary', shoppingCartSummary);
 
     function shoppingCartSummary(shoppingCart) {
 

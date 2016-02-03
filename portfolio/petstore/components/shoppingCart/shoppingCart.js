@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('shoppingCart', [])
-        .factory('shoppingCart', shoppingCart)
+        .factory('shoppingCart', shoppingCart);
 
     function shoppingCart() {
 

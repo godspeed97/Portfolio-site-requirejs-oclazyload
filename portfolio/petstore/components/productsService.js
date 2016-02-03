@@ -3,7 +3,7 @@
     angular.module('petStoreApp')
         .factory('productsSvc', productsSvc);
 
-    function productsSvc($http) {
+    function productsSvc() {
 
         var data = {
             products: [
