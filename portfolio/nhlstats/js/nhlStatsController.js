@@ -12,7 +12,17 @@
         var goalsUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/goals/leagueleaders.json';
         var assistsUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/assists/leagueleaders.json';
 		var plusminusUrl = 'https://jsonp.afeld.me/?url=http://nhlwc.cdnak.neulion.com/fs1/nhl/league/leagueleaders/iphone/plusminus/leagueleaders.json';
-        
+
+		vm.points = [];
+		vm.goals = [];
+		vm.assists = [];
+		vm.plusminus = [];
+
+		vm.errorPoints = '';
+		vm.errorGoals = '';
+		vm.errorAssists = '';
+		vm.errorPlusMinus = '';
+
 		//POINTS------------------------------
 		nhlStatsSvc.getStats(pointsUrl)
 			.then(function (data) {
